@@ -18,7 +18,7 @@ After this project, I learn to:
 
 ## Running the project with Docker
 1. Build the Docker image:
-   '''bash
+   ```bash
    docker build -t <image-name> .
 2. Run the container
    docker run -p 3000:3000 <image-name>
