@@ -15,3 +15,11 @@ After this project, I learn to:
 - Use Vue.js for core interactivity and API integration
 - Use Chart.js for visualization
 - Create a simple mock API
+
+## Running the project with Docker
+1. Build the Docker image:
+   '''bash
+   docker build -t <image-name> .
+2. Run the container
+   docker run -p 3000:3000 <image-name>
+3. Access the app at http://localhost:3000
