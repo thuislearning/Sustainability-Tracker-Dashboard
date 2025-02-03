@@ -1,12 +1,128 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>Sustainability Tracker Dashboard</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            .container {
+              display: grid;
+              grid-template-columns: auto auto auto;
+              padding: 10px;
+            }
+            .container > div {
+              background-color: #FFCDB2;
+              border: 0.5px solid #FFB4A2;
+              padding: 10px;
+              font-size: 15px;
+              text-align: center;
+            }
+            .container > span {
+                padding: 10px;
+            }
+            .subcontainer {
+              display: grid;
+              grid-template-columns: 20% 60% 20%;
+              padding: 10px;
+            }
+            .button {
+              background-color: #FFCDB2;
+              border: none;
+              border-radius: 40px 10px;
+              border-style: hidden;
+              text-align: center;
+              display: inline-block;
+              font-size: 15px;
+              cursor: pointer;
+              margin: 1%;
+            }
+        </style>
     </head>
     <body>
         <h1>Sustainability Tracker Dashboard</h1>
-        <p>Navigation Bars</p>
-        <p>Charts</p>
-        <p>Tables</p>
+        <div class="container">
+            <div>
+                <div align="left">
+                    <b>Text</b>
+                </div>
+                <div class="subcontainer">
+                    <div>
+                        <img alt="img">
+                    </div>
+                    <div>
+                        <b>Number</b>
+                    </div>
+                    <div>
+                        <small>Unit</small>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div align="left">
+                    <b>Text</b>
+                </div>
+                <div class="subcontainer">
+                    <div>
+                        <img alt="img">
+                    </div>
+                    <div>
+                        <b>Number</b>
+                    </div>
+                    <div>
+                        <small>Unit</small>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div align="left">
+                    <b>Text</b>
+                </div>
+                <div class="subcontainer">
+                    <div>
+                        <img alt="img">
+                    </div>
+                    <div>
+                        <b>Number</b>
+                    </div>
+                    <div>
+                        <small>Unit</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="border: 0.5px solid #E5989B">
+            <button class="button">
+                Select Year
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <button class="button">
+                Select Place
+                <i class="fa fa-caret-down"></i>
+            </button>
+        </div>
+        <div class="container">
+            <span>
+                <h5>Factor 1</h5>
+                <div style="border: 0.5px solid #FFCDB2">
+                    <p>Insert Graph</p>
+                </div>
+            </span>
+            <span>
+                <h5>Factor 1</h5>
+                <div style="border: 0.5px solid #FFCDB2">
+                    <p>Insert Graph</p>
+                </div>
+            </span>
+            <span>
+                <h5>Factor 1</h5>
+                <div style="border: 0.5px solid #FFCDB2">
+                    <p>Insert Graph</p>
+                </div>
+            </span>
+            <span>
+                <h5>Factor 1</h5>
+                <div style="border: 0.5px solid #FFCDB2">
+                    <p>Insert Graph</p>
+                </div>
+            </span>
+        </div>
     </body>
 </html>
