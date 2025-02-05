@@ -1,40 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <style>
-            .container {
-              display: grid;
-              grid-template-columns: auto auto auto;
-              padding: 10px;
-            }
-            .container > div {
-              background-color: #FFCDB2;
-              border: 0.5px solid #FFB4A2;
-              padding: 10px;
-              font-size: 15px;
-              text-align: center;
-            }
-            .container > span {
-                padding: 10px;
-            }
-            .subcontainer {
-              display: grid;
-              grid-template-columns: 20% 60% 20%;
-              padding: 10px;
-            }
-            .button {
-              background-color: #FFCDB2;
-              border: none;
-              border-radius: 40px 10px;
-              border-style: hidden;
-              text-align: center;
-              display: inline-block;
-              font-size: 15px;
-              cursor: pointer;
-              margin: 1%;
-            }
-        </style>
+        <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
         <h1>Sustainability Tracker Dashboard</h1>
@@ -89,11 +58,11 @@
             </div>
         </div>
         <div style="border: 0.5px solid #E5989B">
-            <button class="button">
+            <button class="button" aria-label="select_year">
                 Select Year
                 <i class="fa fa-caret-down"></i>
             </button>
-            <button class="button">
+            <button class="button" aria-label="select_place">
                 Select Place
                 <i class="fa fa-caret-down"></i>
             </button>
