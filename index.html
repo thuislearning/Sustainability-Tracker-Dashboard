@@ -6,92 +6,112 @@
         <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
-        <h1>Sustainability Tracker Dashboard</h1>
-        <div class="container">
-            <div>
-                <div align="left">
-                    <b>Text</b>
+        <div id="app">
+            <h1>Sustainability Tracker Dashboard</h1>
+            <div class="container">
+                <div>
+                    <div align="left">
+                        <b>Text</b>
+                    </div>
+                    <div class="subcontainer">
+                        <div>
+                            <img alt="img">
+                        </div>
+                        <div>
+                            <b>Number</b>
+                        </div>
+                        <div>
+                            <small>Unit</small>
+                        </div>
+                    </div>
                 </div>
-                <div class="subcontainer">
-                    <div>
-                        <img alt="img">
+                <div>
+                    <div align="left">
+                        <b>Text</b>
                     </div>
-                    <div>
-                        <b>Number</b>
+                    <div class="subcontainer">
+                        <div>
+                            <img alt="img">
+                        </div>
+                        <div>
+                            <b>Number</b>
+                        </div>
+                        <div>
+                            <small>Unit</small>
+                        </div>
                     </div>
-                    <div>
-                        <small>Unit</small>
+                </div>
+                <div>
+                    <div align="left">
+                        <b>Text</b>
+                    </div>
+                    <div class="subcontainer">
+                        <div>
+                            <img alt="img">
+                        </div>
+                        <div>
+                            <b>Number</b>
+                        </div>
+                        <div>
+                            <small>Unit</small>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div>
-                <div align="left">
-                    <b>Text</b>
-                </div>
-                <div class="subcontainer">
-                    <div>
-                        <img alt="img">
-                    </div>
-                    <div>
-                        <b>Number</b>
-                    </div>
-                    <div>
-                        <small>Unit</small>
-                    </div>
-                </div>
+            <div class="dropdown-container">
+                <!-- Dropdown Button -->
+                <button class="button" @click="toggleDropdown" aria-label="select_year" type="button" aria-haspopup="true" aria-expanded="false">
+                    {{ selectedYear || "Select Year" }} 
+                    <i class="fa fa-caret-down"></i>
+                </button>
+        
+                <!-- Dropdown Menu -->
+                <ul v-show="isDropdownOpen" class="dropdown-menu">
+                    <li v-for="year in years" :key="year">
+                        <a href="#" @click.prevent="selectYear(year)">{{ year }}</a>
+                    </li>
+                </ul>
+        
+                <!-- Second Button -->
+                <button class="button" @click="toggleDropdown" aria-label="select_place" type="button" aria-haspopup="true" aria-expanded="false">
+                    {{ selectedPlace || "Select Place" }}
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <ul v-show="isDropdownOpen" class="dropdown-menu">
+                    <li v-for="place in places" :key="place">
+                        <a href="#" @click.prevent="selectPlace(place)">{{ place }}</a>
+                    </li>
+                </ul>
             </div>
-            <div>
-                <div align="left">
-                    <b>Text</b>
-                </div>
-                <div class="subcontainer">
-                    <div>
-                        <img alt="img">
+            <div class="container">
+                <span>
+                    <h5>Factor 1</h5>
+                    <div style="border: 0.5px solid #FFCDB2">
+                        <p>Insert Graph</p>
                     </div>
-                    <div>
-                        <b>Number</b>
+                </span>
+                <span>
+                    <h5>Factor 1</h5>
+                    <div style="border: 0.5px solid #FFCDB2">
+                        <p>Insert Graph</p>
                     </div>
-                    <div>
-                        <small>Unit</small>
+                </span>
+                <span>
+                    <h5>Factor 1</h5>
+                    <div style="border: 0.5px solid #FFCDB2">
+                        <p>Insert Graph</p>
                     </div>
-                </div>
+                </span>
+                <span>
+                    <h5>Factor 1</h5>
+                    <div style="border: 0.5px solid #FFCDB2">
+                        <p>Insert Graph</p>
+                    </div>
+                </span>
             </div>
         </div>
-        <div style="border: 0.5px solid #E5989B">
-            <button class="button" aria-label="select_year">
-                Select Year
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <button class="button" aria-label="select_place">
-                Select Place
-                <i class="fa fa-caret-down"></i>
-            </button>
-        </div>
-        <div class="container">
-            <span>
-                <h5>Factor 1</h5>
-                <div style="border: 0.5px solid #FFCDB2">
-                    <p>Insert Graph</p>
-                </div>
-            </span>
-            <span>
-                <h5>Factor 1</h5>
-                <div style="border: 0.5px solid #FFCDB2">
-                    <p>Insert Graph</p>
-                </div>
-            </span>
-            <span>
-                <h5>Factor 1</h5>
-                <div style="border: 0.5px solid #FFCDB2">
-                    <p>Insert Graph</p>
-                </div>
-            </span>
-            <span>
-                <h5>Factor 1</h5>
-                <div style="border: 0.5px solid #FFCDB2">
-                    <p>Insert Graph</p>
-                </div>
-            </span>
-        </div>
+        <!-- Vue.js -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
+        <script src="js/app.js"></script>
     </body>
 </html>

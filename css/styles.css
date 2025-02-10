@@ -38,4 +38,30 @@ body {
     font-size: 15px;
     cursor: pointer;
     margin: 1%;
+    width: max-content;
+}
+.dropdown-container {
+    display: grid;
+    grid-template-columns: 10% 10%;
+    padding: 10px;
+}
+.dropdown-menu {
+    position: absolute;
+    background-color: #FFCDB2;
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+    margin-left: 20px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    width: max-content;
+}
+.dropdown-menu li {
+    padding: 4px 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.dropdown-menu li:hover {
+    background-color: #E5989B;
+    color: white;
 }
