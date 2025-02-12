@@ -83,3 +83,12 @@ body {
 .dropbtn:hover {
     background-color: #FFB4A2;
 }
+.chart-box {
+    border: 0.5px solid #FFCDB2;
+    padding: 10px;
+    width: 250px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

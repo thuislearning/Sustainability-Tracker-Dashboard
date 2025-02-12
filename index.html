@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sustainability Tracker Dashboard</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/styles.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
     <body>
         <div id="app">
@@ -66,29 +70,39 @@
                     </div>
                 </div>
             </div>
+            <!-- <div class="container">
+                <span>
+                    <h5>Factor 1</h5>
+                    <div style="border: 0.5px solid #FFCDB2">
+                        <p>Insert Graph</p>
+                    </div>
+                </span>
+                <span>
+                    <h5>Factor 1</h5>
+                    <div style="border: 0.5px solid #FFCDB2">
+                        <p>Insert Graph</p>
+                    </div>
+                </span>
+                <span>
+                    <h5>Factor 1</h5>
+                    <div style="border: 0.5px solid #FFCDB2">
+                        <p>Insert Graph</p>
+                    </div>
+                </span>
+                <span>
+                    <h5>Factor 1</h5>
+                    <div style="border: 0.5px solid #FFCDB2">
+                        <p>Insert Graph</p>
+                    </div>
+                </span>
+            </div> -->
             <div class="container">
-                <span>
-                    <h5>Factor 1</h5>
-                    <div style="border: 0.5px solid #FFCDB2">
-                        <p>Insert Graph</p>
-                    </div>
-                </span>
-                <span>
-                    <h5>Factor 1</h5>
-                    <div style="border: 0.5px solid #FFCDB2">
-                        <p>Insert Graph</p>
-                    </div>
-                </span>
-                <span>
-                    <h5>Factor 1</h5>
-                    <div style="border: 0.5px solid #FFCDB2">
-                        <p>Insert Graph</p>
-                    </div>
-                </span>
-                <span>
-                    <h5>Factor 1</h5>
-                    <div style="border: 0.5px solid #FFCDB2">
-                        <p>Insert Graph</p>
+                <!-- v-for loops through the charts array to generate multiple charts dynamically -->
+                <span v-for="(chart, index) in charts" :key="index">
+                    <h5>{{ chart.title }}</h5>
+                    <div class="chart-box">
+                        <!-- Dynamic <canvas> IDs - Each chart gets a unique id="chart-index", ensuring Vue correctly references each one -->
+                        <canvas :id="'chart-' + index"></canvas>
                     </div>
                 </span>
             </div>
