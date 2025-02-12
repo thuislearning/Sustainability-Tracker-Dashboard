@@ -38,4 +38,57 @@ body {
     font-size: 15px;
     cursor: pointer;
     margin: 1%;
+    width: max-content;
+}
+.dropdown-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 10px;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #FFCDB2;
+    min-width: 120px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    border-radius: 10px;
+}
+.dropdown-content a {
+    display: block;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: black;
+}
+.dropdown-content a:hover {
+    background-color: #FFB4A2;
+    border-radius: 10px;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropbtn {
+    padding: 7px 20px;
+    border: none;
+    background-color: #FFCDB2;
+    color: black;
+    cursor: pointer;
+    border-radius: 100px;
+}
+.dropbtn:hover {
+    background-color: #FFB4A2;
+}
+.chart-box {
+    border: 0.5px solid #FFCDB2;
+    padding: 10px;
+    width: 250px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

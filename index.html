@@ -1,97 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sustainability Tracker Dashboard</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/styles.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
     <body>
-        <h1>Sustainability Tracker Dashboard</h1>
-        <div class="container">
-            <div>
-                <div align="left">
-                    <b>Text</b>
+        <div id="app">
+            <h1>Sustainability Tracker Dashboard</h1>
+            <div class="container">
+                <div>
+                    <div align="left">
+                        <b>Text</b>
+                    </div>
+                    <div class="subcontainer">
+                        <div>
+                            <img alt="img">
+                        </div>
+                        <div>
+                            <b>Number</b>
+                        </div>
+                        <div>
+                            <small>Unit</small>
+                        </div>
+                    </div>
                 </div>
-                <div class="subcontainer">
-                    <div>
-                        <img alt="img">
+                <div>
+                    <div align="left">
+                        <b>Text</b>
                     </div>
-                    <div>
-                        <b>Number</b>
+                    <div class="subcontainer">
+                        <div>
+                            <img alt="img">
+                        </div>
+                        <div>
+                            <b>Number</b>
+                        </div>
+                        <div>
+                            <small>Unit</small>
+                        </div>
                     </div>
-                    <div>
-                        <small>Unit</small>
+                </div>
+                <div>
+                    <div align="left">
+                        <b>Text</b>
+                    </div>
+                    <div class="subcontainer">
+                        <div>
+                            <img alt="img">
+                        </div>
+                        <div>
+                            <b>Number</b>
+                        </div>
+                        <div>
+                            <small>Unit</small>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div>
-                <div align="left">
-                    <b>Text</b>
-                </div>
-                <div class="subcontainer">
-                    <div>
-                        <img alt="img">
-                    </div>
-                    <div>
-                        <b>Number</b>
-                    </div>
-                    <div>
-                        <small>Unit</small>
+            <div class="dropdown-container">
+                <div class="dropdown" v-for="(dropdown, index) in dropdowns" :key="index">
+                    <button class="dropbtn" @mouseover="dropdown.show = true" @mouseleave="dropdown.show = false">{{ dropdown.selected }}</button>
+                    <div class="dropdown-content" v-show="dropdown.show" @mouseover="dropdown.show = true" @mouseleave="dropdown.show = false">
+                        <a href="#" v-for="option in dropdown.options" :key="option" @click.prevent="selectOption(index, option)">{{ option }}</a>
                     </div>
                 </div>
             </div>
-            <div>
-                <div align="left">
-                    <b>Text</b>
-                </div>
-                <div class="subcontainer">
-                    <div>
-                        <img alt="img">
+            <!-- <div class="container">
+                <span>
+                    <h5>Factor 1</h5>
+                    <div style="border: 0.5px solid #FFCDB2">
+                        <p>Insert Graph</p>
                     </div>
-                    <div>
-                        <b>Number</b>
+                </span>
+                <span>
+                    <h5>Factor 1</h5>
+                    <div style="border: 0.5px solid #FFCDB2">
+                        <p>Insert Graph</p>
                     </div>
-                    <div>
-                        <small>Unit</small>
+                </span>
+                <span>
+                    <h5>Factor 1</h5>
+                    <div style="border: 0.5px solid #FFCDB2">
+                        <p>Insert Graph</p>
                     </div>
-                </div>
+                </span>
+                <span>
+                    <h5>Factor 1</h5>
+                    <div style="border: 0.5px solid #FFCDB2">
+                        <p>Insert Graph</p>
+                    </div>
+                </span>
+            </div> -->
+            <div class="container">
+                <!-- v-for loops through the charts array to generate multiple charts dynamically -->
+                <span v-for="(chart, index) in charts" :key="index">
+                    <h5>{{ chart.title }}</h5>
+                    <div class="chart-box">
+                        <!-- Dynamic <canvas> IDs - Each chart gets a unique id="chart-index", ensuring Vue correctly references each one -->
+                        <canvas :id="'chart-' + index"></canvas>
+                    </div>
+                </span>
             </div>
         </div>
-        <div style="border: 0.5px solid #E5989B">
-            <button class="button" aria-label="select_year">
-                Select Year
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <button class="button" aria-label="select_place">
-                Select Place
-                <i class="fa fa-caret-down"></i>
-            </button>
-        </div>
-        <div class="container">
-            <span>
-                <h5>Factor 1</h5>
-                <div style="border: 0.5px solid #FFCDB2">
-                    <p>Insert Graph</p>
-                </div>
-            </span>
-            <span>
-                <h5>Factor 1</h5>
-                <div style="border: 0.5px solid #FFCDB2">
-                    <p>Insert Graph</p>
-                </div>
-            </span>
-            <span>
-                <h5>Factor 1</h5>
-                <div style="border: 0.5px solid #FFCDB2">
-                    <p>Insert Graph</p>
-                </div>
-            </span>
-            <span>
-                <h5>Factor 1</h5>
-                <div style="border: 0.5px solid #FFCDB2">
-                    <p>Insert Graph</p>
-                </div>
-            </span>
-        </div>
+        <!-- Vue.js -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
+        <script src="js/app.js"></script>
     </body>
 </html>
