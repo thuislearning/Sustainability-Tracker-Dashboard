@@ -59,29 +59,12 @@
                 </div>
             </div>
             <div class="dropdown-container">
-                <!-- Dropdown Button -->
-                <button class="button" @click="toggleDropdown" aria-label="select_year" type="button" aria-haspopup="true" aria-expanded="false">
-                    {{ selectedYear || "Select Year" }} 
-                    <i class="fa fa-caret-down"></i>
-                </button>
-        
-                <!-- Dropdown Menu -->
-                <ul v-show="isDropdownOpen" class="dropdown-menu">
-                    <li v-for="year in years" :key="year">
-                        <a href="#" @click.prevent="selectYear(year)">{{ year }}</a>
-                    </li>
-                </ul>
-        
-                <!-- Second Button -->
-                <button class="button" @click="toggleDropdown" aria-label="select_place" type="button" aria-haspopup="true" aria-expanded="false">
-                    {{ selectedPlace || "Select Place" }}
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <ul v-show="isDropdownOpen" class="dropdown-menu">
-                    <li v-for="place in places" :key="place">
-                        <a href="#" @click.prevent="selectPlace(place)">{{ place }}</a>
-                    </li>
-                </ul>
+                <div class="dropdown" v-for="(dropdown, index) in dropdowns" :key="index">
+                    <button class="dropbtn" @mouseover="dropdown.show = true" @mouseleave="dropdown.show = false">{{ dropdown.selected }}</button>
+                    <div class="dropdown-content" v-show="dropdown.show" @mouseover="dropdown.show = true" @mouseleave="dropdown.show = false">
+                        <a href="#" v-for="option in dropdown.options" :key="option" @click.prevent="selectOption(index, option)">{{ option }}</a>
+                    </div>
+                </div>
             </div>
             <div class="container">
                 <span>

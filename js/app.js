@@ -1,24 +1,15 @@
 const app = Vue.createApp({
     data() {
         return {
-            years: [2025, 2024, 2023], // Dropdown options
-            selectedYear: null, // Stores selected year
-            places: ["Ho Chi Minh City", "Hanoi", "Da Nang"],
-            selectedPlace: null,
-            isDropdownOpen: false // Controls dropdown visibility
+            dropdowns: [
+                { selected: 'Select Year', options: ['2025', '2024', '2023'], show: false },
+                { selected: 'Select Place', options: ['Ho Chi Minh City', 'Hanoi', 'Da Nang'], show: false }
+            ]
         };
     },
     methods: {
-        toggleDropdown() {
-            this.isDropdownOpen = !this.isDropdownOpen; // Toggle dropdown
-        },
-        selectYear(year) {
-            this.selectedYear = year; // Update selected year
-            this.isDropdownOpen = false; // Close dropdown
-        },
-        selectPlace(place) {
-            this.selectedPlace = place;
-            this.isDropdownOpen = false;
+        selectOption(index, option) {
+            this.dropdowns[index].selected = option;
         }
     }
 });
