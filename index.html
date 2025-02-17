@@ -70,32 +70,6 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="container">
-                <span>
-                    <h5>Factor 1</h5>
-                    <div style="border: 0.5px solid #FFCDB2">
-                        <p>Insert Graph</p>
-                    </div>
-                </span>
-                <span>
-                    <h5>Factor 1</h5>
-                    <div style="border: 0.5px solid #FFCDB2">
-                        <p>Insert Graph</p>
-                    </div>
-                </span>
-                <span>
-                    <h5>Factor 1</h5>
-                    <div style="border: 0.5px solid #FFCDB2">
-                        <p>Insert Graph</p>
-                    </div>
-                </span>
-                <span>
-                    <h5>Factor 1</h5>
-                    <div style="border: 0.5px solid #FFCDB2">
-                        <p>Insert Graph</p>
-                    </div>
-                </span>
-            </div> -->
             <div class="container">
                 <!-- v-for loops through the charts array to generate multiple charts dynamically -->
                 <span v-for="(chart, index) in charts" :key="index">
@@ -106,6 +80,31 @@
                     </div>
                 </span>
             </div>
+            <input class="search" type="text" v-model="searchQuery" placeholder="Search..." />
+            <table>
+                <thead>
+                <tr>
+                    <th v-for="col in columns" 
+                        :key="col.field" 
+                        @click="sortTable(col.field)"
+                        class="sortable">
+                        {{ col.label }}
+                        <span v-if="sortedColumn === col.field">
+                            <span v-if="sortOrder === 'asc'"> ▲</span>
+                            <span v-else> ▼</span>
+                        </span>
+                        <span v-else> ⬍</span>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="item in filteredData" :key="item.id">
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.category }}</td>
+                    <td>{{ item.value }}</td>
+                </tr>
+                </tbody>
+            </table>
         </div>
         <!-- Vue.js -->
         <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>

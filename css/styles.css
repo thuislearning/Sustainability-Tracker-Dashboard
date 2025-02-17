@@ -92,3 +92,30 @@ body {
     align-items: center;
     justify-content: center;
 }
+.search {
+    border: 2px solid #FFB4A2;
+    border-radius: 10%;
+    padding: 10px;
+    margin: 10px;
+}
+table {
+    table-layout: auto;
+    width: 100%;
+    border: 1px solid #FFB4A2;
+    padding: 10px;
+    margin: 10px;
+}
+th {
+    background-color: #FFCDB2;
+    color: black;
+    padding: 12px;
+    text-transform: uppercase;
+    position: relative; /* Allows sorting icon positioning */
+    cursor: pointer; /* Indicates interactivity */
+    border-right: 1px solid #ddd; /* Column border */
+}
+td {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
