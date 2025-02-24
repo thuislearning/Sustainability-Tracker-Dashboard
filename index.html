@@ -62,24 +62,42 @@
                     </div>
                 </div>
             </div>
-            <div class="dropdown-container">
+            <!-- <div class="dropdown-container">
                 <div class="dropdown" v-for="(dropdown, index) in dropdowns" :key="index">
                     <button class="dropbtn" @mouseover="dropdown.show = true" @mouseleave="dropdown.show = false">{{ dropdown.selected }}</button>
                     <div class="dropdown-content" v-show="dropdown.show" @mouseover="dropdown.show = true" @mouseleave="dropdown.show = false">
                         <a href="#" v-for="option in dropdown.options" :key="option" @click.prevent="selectOption(index, option)">{{ option }}</a>
                     </div>
                 </div>
-            </div>            
-            <div class="container">
-                <!-- v-for loops through the charts array to generate multiple charts dynamically -->
+            </div>             -->
+            <div class="dropdown-container">
+                <label for="year">Select Year:</label>
+                <select class="dropbtn" id="year" v-model="selectedYear">
+                    <option value="">All Years</option>
+                    <option v-for="year in uniqueYears" :key="year" :value="year">{{ year }}</option>
+                </select>
+            
+                <label for="place">Select Place:</label>
+                <select class="dropbtn" id="place" v-model="selectedPlace">
+                    <option value="">All Places</option>
+                    <option v-for="place in uniquePlaces" :key="place" :value="place">{{ place }}</option>
+                </select>
+            </div>
+            
+            <!-- <div class="container">
+                v-for loops through the charts array to generate multiple charts dynamically
                 <span v-for="(chart, index) in charts" :key="index">
                     <h5>{{ chart.title }}</h5>
                     <div class="chart-box">
-                        <!-- Dynamic <canvas> IDs - Each chart gets a unique id="chart-index", ensuring Vue correctly references each one -->
+                        Dynamic <canvas> IDs - Each chart gets a unique id="chart-index", ensuring Vue correctly references each one
                         <canvas :id="'chart-' + index"></canvas>
                     </div>
                 </span>
+            </div> -->
+            <div class="container">
+                <canvas id="myChart" height="50%" width="50%"></canvas>
             </div>
+
             <input class="search" type="text" @input="updateQuery" v-model="searchQuery" placeholder="Search..." />
             <table>
                 <thead>

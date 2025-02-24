@@ -92,6 +92,9 @@ body {
     align-items: center;
     justify-content: center;
 }
+canvas {
+    max-height: 500px;
+}
 .search {
     border: 2px solid #FFB4A2;
     border-radius: 10%;
