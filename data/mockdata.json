@@ -1,1 +1,17 @@
-// optional mock data for local testing
+{
+    "sustainabilityData": [
+      { "place": "USA", "year": 2021, "value": 100 },
+      { "place": "USA", "year": 2022, "value": 105 },
+      { "place": "USA", "year": 2023, "value": 150 },
+      { "place": "USA", "year": 2024, "value": 155 },
+      { "place": "Canada", "year": 2021, "value": 90 },
+      { "place": "Canada", "year": 2022, "value": 85 },
+      { "place": "Canada", "year": 2023, "value": 95 },
+      { "place": "Canada", "year": 2024, "value": 90 }
+    ],
+    "users": [
+      { "id": 1, "name": "John Doe", "email": "john@example.com", "company": { "name": "ABC Corp" } },
+      { "id": 2, "name": "Jane Smith", "email": "jane@example.com", "company": { "name": "XYZ Inc" } }
+    ]
+  }
+  

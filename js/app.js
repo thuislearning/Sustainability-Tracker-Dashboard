@@ -1,26 +1,23 @@
 const app = Vue.createApp({
     data() {
         return {
-            // dropdowns: [
-            //     { selected: 'Select Year', options: ['2025', '2024', '2023'], show: false },
-            //     { selected: 'Select Place', options: ['Ho Chi Minh City', 'Hanoi', 'Da Nang'], show: false }
-            // ],
             // charts: [
             //     { title: "Factor 1", type: "bar", data: [10, 20, 30, 40] },
             //     { title: "Factor 2", type: "line", data: [15, 25, 35, 45] },
             //     { title: "Factor 3", type: "doughnut", data: [5, 15, 25, 35] },
             //     { title: "Factor 4", type: "pie", data: [8, 18, 28, 38] }
             // ],
-            rawData: [
-                { place: "USA", year: 2021, value: 100 },
-                { place: "USA", year: 2022, value: 105  },
-                { place: "USA", year: 2023, value: 150  },
-                { place: "USA", year: 2024, value: 155  },
-                { place: "Canada", year: 2021, value: 90 },
-                { place: "Canada", year: 2022, value: 85  },
-                { place: "Canada", year: 2023, value: 95  },
-                { place: "Canada", year: 2024, value: 90  },
-            ],
+            // rawData: [
+            //     { place: "USA", year: 2021, value: 100 },
+            //     { place: "USA", year: 2022, value: 105  },
+            //     { place: "USA", year: 2023, value: 150  },
+            //     { place: "USA", year: 2024, value: 155  },
+            //     { place: "Canada", year: 2021, value: 90 },
+            //     { place: "Canada", year: 2022, value: 85  },
+            //     { place: "Canada", year: 2023, value: 95  },
+            //     { place: "Canada", year: 2024, value: 90  },
+            // ],
+            rawChartData: [],
             selectedYear: "",
             selectedPlace: "",
             chartInstance: null,         
@@ -38,6 +35,7 @@ const app = Vue.createApp({
     },
     // Lifecycle Hook (mounted()) -> runs renderCharts() after Vue loads to initialize the charts
     mounted() {
+        this.fetchChartData();
         // this.renderCharts();
         this.createChart();
 
@@ -129,6 +127,15 @@ const app = Vue.createApp({
         //         });
         //     });
         // },
+        async fetchChartData() {
+            try {
+                const response = await fetch("http://localhost:3000/sustainabilityData");
+                const data = await response.json();
+                this.rawChartData = data; // Update the raw data dynamically
+            } catch (error) {
+                console.error("Error fetching sustainability data:", error);
+            }
+        },        
         createChart() {
             const ctx = document.getElementById("myChart").getContext("2d");
 
@@ -188,7 +195,7 @@ const app = Vue.createApp({
         },
         async fetchTableData() {
             try {
-                const response = await fetch("https://jsonplaceholder.typicode.com/users");
+                const response = await fetch("http://localhost:3000/users");
                 const data = await response.json();
                 this.tableData = data;
             } catch (error) {
