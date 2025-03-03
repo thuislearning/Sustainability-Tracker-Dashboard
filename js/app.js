@@ -50,13 +50,13 @@ const app = Vue.createApp({
             .filter(item => item.name.toLowerCase().includes(this.searchQuery.toLowerCase()))
         },
         uniqueYears() {
-            return [...new Set(this.rawData.map(item => item.year))].sort();
+            return [...new Set(this.rawChartData.map(item => item.year))].sort();
         },
         uniquePlaces() {
-            return [...new Set(this.rawData.map(item => item.place))];
+            return [...new Set(this.rawChartData.map(item => item.place))];
         },
         filteredChartData() {
-            return this.rawData.filter(item => 
+            return this.rawChartData.filter(item => 
                 (this.selectedYear === "" || item.year == this.selectedYear) &&
                 (this.selectedPlace === "" || item.place == this.selectedPlace)
             );
@@ -139,16 +139,6 @@ const app = Vue.createApp({
         createChart() {
             const ctx = document.getElementById("myChart").getContext("2d");
 
-            const years = this.uniqueYears; 
-            const places = this.uniquePlaces;
-
-            // const datasets = places.map((place, index) => ({
-            //     label: place,
-            //     data: years.map(year => this.groupedData[year]?.[place] || 0),
-            //     borderColor: this.getRandomColor(index),
-            //     fill: false
-            // }));
-
             this.chartInstance = new Chart(ctx, {
                 type: "bar",
                 data: {
@@ -159,30 +149,17 @@ const app = Vue.createApp({
                         backgroundColor: "#FFCDB2"
                     }]
                 },
-                // data: {
-                //     labels: years,
-                //     datasets: datasets
-                // },
                 options: { 
                     responsive: true,
-                    maintainAspectRatio: true 
+                    maintainAspectRatio: true,
+                    scales: {
+                        y: {
+                            title: { display: true, text: "billion tonnes" }
+                        }
+                    }
                 }
-                // options: {
-                //     responsive: true,
-                //     plugins: {
-                //         legend: { display: true }
-                //     },
-                //     scales: {
-                //         y: {
-                //             title: { display: true, text: "CO₂ Emission (billion tonnes)" }
-                //         },
-                //         x: {
-                //             title: { display: true, text: "Year" }
-                //         }
-                //     }
-                // }
             });
-        },
+        },                        
         // getRandomColor(index) {
         //     const colors = ["#ff6384", "#36a2eb", "#ffce56", "#4bc0c0", "#9966ff"];
         //     return colors[index % colors.length];
