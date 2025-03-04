@@ -22,9 +22,14 @@ const app = Vue.createApp({
             selectedPlace: "",
             chartInstance: null,         
             columns: [
-                { label: "Name", field: "name" },
-                { label: "Email", field: "email" },
-                { label: "Company", field: "company", transform: company => company.name }, // Access nested object
+                // { label: "Name", field: "name" },
+                // { label: "Email", field: "email" },
+                // { label: "Company", field: "company", transform: company => company.name }, // Access nested object
+                { label: "Year", field: "year" },
+                { label: "Country", field: "country" },
+                { label: "CO₂ Emissions (million tonnes)", field: "co2_emissions_million_tons" },
+                { label: "Renewable Energy (%)", field: "renewable_energy_percent" },
+                { label: "Water Usage (billion m³)", field: "water_usage_billion_m3" }
             ],
             tableData: [], // Initially empty, will be filled with API data
             searchQuery: "",
@@ -47,7 +52,7 @@ const app = Vue.createApp({
     computed: {
         filteredData() {
           return this.tableData
-            .filter(item => item.name.toLowerCase().includes(this.searchQuery.toLowerCase()))
+            .filter(item => item.country.toLowerCase().includes(this.searchQuery.toLowerCase()))
         },
         uniqueYears() {
             return [...new Set(this.rawChartData.map(item => item.year))].sort();
@@ -172,7 +177,7 @@ const app = Vue.createApp({
         },
         async fetchTableData() {
             try {
-                const response = await fetch("http://localhost:3000/users");
+                const response = await fetch("http://localhost:3000/environmentalMetrics");
                 const data = await response.json();
                 this.tableData = data;
             } catch (error) {

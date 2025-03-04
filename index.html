@@ -119,9 +119,11 @@
                         <td colspan="3">Loading data...</td>
                     </tr>
                     <tr v-else v-for="row in filteredData" :key="row.id">
-                        <td>{{ row.name }}</td>
-                        <td>{{ row.email }}</td>
-                        <td>{{ row.company.name }}</td>
+                        <td>{{ row.year }}</td>
+                        <td>{{ row.country }}</td>
+                        <td>{{ row.co2_emissions_million_tons }}</td>
+                        <td>{{ row.renewable_energy_percent }}</td>
+                        <td>{{ row.water_usage_billion_m3 }}</td>
                     </tr>
                 </tbody>
             </table>
