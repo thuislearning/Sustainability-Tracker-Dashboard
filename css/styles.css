@@ -1,6 +1,8 @@
 @media (max-width: 768px) {
     .container {
-      grid-template-columns: 1fr; /* Stack items vertically */
+        display: grid;
+        grid-template-columns: 1fr; /* Stack items vertically */
+        gap: 10px; /* Adds spacing between stacked items */
     }
   }
 body {
@@ -38,7 +40,7 @@ body {
     font-size: 15px;
     cursor: pointer;
     margin: 1%;
-    width: max-content;
+    min-width: 120px;
 }
 .dropdown-container {
     display: flex;

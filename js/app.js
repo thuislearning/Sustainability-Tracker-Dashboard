@@ -1,33 +1,35 @@
 const app = Vue.createApp({
     data() {
         return {
-            // dropdowns: [
-            //     { selected: 'Select Year', options: ['2025', '2024', '2023'], show: false },
-            //     { selected: 'Select Place', options: ['Ho Chi Minh City', 'Hanoi', 'Da Nang'], show: false }
-            // ],
             // charts: [
             //     { title: "Factor 1", type: "bar", data: [10, 20, 30, 40] },
             //     { title: "Factor 2", type: "line", data: [15, 25, 35, 45] },
             //     { title: "Factor 3", type: "doughnut", data: [5, 15, 25, 35] },
             //     { title: "Factor 4", type: "pie", data: [8, 18, 28, 38] }
             // ],
-            rawData: [
-                { place: "USA", year: 2021, value: 100 },
-                { place: "USA", year: 2022, value: 105  },
-                { place: "USA", year: 2023, value: 150  },
-                { place: "USA", year: 2024, value: 155  },
-                { place: "Canada", year: 2021, value: 90 },
-                { place: "Canada", year: 2022, value: 85  },
-                { place: "Canada", year: 2023, value: 95  },
-                { place: "Canada", year: 2024, value: 90  },
-            ],
+            // rawData: [
+            //     { place: "USA", year: 2021, value: 100 },
+            //     { place: "USA", year: 2022, value: 105  },
+            //     { place: "USA", year: 2023, value: 150  },
+            //     { place: "USA", year: 2024, value: 155  },
+            //     { place: "Canada", year: 2021, value: 90 },
+            //     { place: "Canada", year: 2022, value: 85  },
+            //     { place: "Canada", year: 2023, value: 95  },
+            //     { place: "Canada", year: 2024, value: 90  },
+            // ],
+            rawChartData: [],
             selectedYear: "",
             selectedPlace: "",
             chartInstance: null,         
             columns: [
-                { label: "Name", field: "name" },
-                { label: "Email", field: "email" },
-                { label: "Company", field: "company", transform: company => company.name }, // Access nested object
+                // { label: "Name", field: "name" },
+                // { label: "Email", field: "email" },
+                // { label: "Company", field: "company", transform: company => company.name }, // Access nested object
+                { label: "Year", field: "year" },
+                { label: "Country", field: "country" },
+                { label: "CO₂ Emissions (million tonnes)", field: "co2_emissions_million_tons" },
+                { label: "Renewable Energy (%)", field: "renewable_energy_percent" },
+                { label: "Water Usage (billion m³)", field: "water_usage_billion_m3" }
             ],
             tableData: [], // Initially empty, will be filled with API data
             searchQuery: "",
@@ -38,6 +40,7 @@ const app = Vue.createApp({
     },
     // Lifecycle Hook (mounted()) -> runs renderCharts() after Vue loads to initialize the charts
     mounted() {
+        this.fetchChartData();
         // this.renderCharts();
         this.createChart();
 
@@ -49,16 +52,16 @@ const app = Vue.createApp({
     computed: {
         filteredData() {
           return this.tableData
-            .filter(item => item.name.toLowerCase().includes(this.searchQuery.toLowerCase()))
+            .filter(item => item.country.toLowerCase().includes(this.searchQuery.toLowerCase()))
         },
         uniqueYears() {
-            return [...new Set(this.rawData.map(item => item.year))].sort();
+            return [...new Set(this.rawChartData.map(item => item.year))].sort();
         },
         uniquePlaces() {
-            return [...new Set(this.rawData.map(item => item.place))];
+            return [...new Set(this.rawChartData.map(item => item.place))];
         },
         filteredChartData() {
-            return this.rawData.filter(item => 
+            return this.rawChartData.filter(item => 
                 (this.selectedYear === "" || item.year == this.selectedYear) &&
                 (this.selectedPlace === "" || item.place == this.selectedPlace)
             );
@@ -129,18 +132,17 @@ const app = Vue.createApp({
         //         });
         //     });
         // },
+        async fetchChartData() {
+            try {
+                const response = await fetch("http://localhost:3000/sustainabilityData");
+                const data = await response.json();
+                this.rawChartData = data; // Update the raw data dynamically
+            } catch (error) {
+                console.error("Error fetching sustainability data:", error);
+            }
+        },        
         createChart() {
             const ctx = document.getElementById("myChart").getContext("2d");
-
-            const years = this.uniqueYears; 
-            const places = this.uniquePlaces;
-
-            // const datasets = places.map((place, index) => ({
-            //     label: place,
-            //     data: years.map(year => this.groupedData[year]?.[place] || 0),
-            //     borderColor: this.getRandomColor(index),
-            //     fill: false
-            // }));
 
             this.chartInstance = new Chart(ctx, {
                 type: "bar",
@@ -152,30 +154,17 @@ const app = Vue.createApp({
                         backgroundColor: "#FFCDB2"
                     }]
                 },
-                // data: {
-                //     labels: years,
-                //     datasets: datasets
-                // },
                 options: { 
                     responsive: true,
-                    maintainAspectRatio: true 
+                    maintainAspectRatio: true,
+                    scales: {
+                        y: {
+                            title: { display: true, text: "billion tonnes" }
+                        }
+                    }
                 }
-                // options: {
-                //     responsive: true,
-                //     plugins: {
-                //         legend: { display: true }
-                //     },
-                //     scales: {
-                //         y: {
-                //             title: { display: true, text: "CO₂ Emission (billion tonnes)" }
-                //         },
-                //         x: {
-                //             title: { display: true, text: "Year" }
-                //         }
-                //     }
-                // }
             });
-        },
+        },                        
         // getRandomColor(index) {
         //     const colors = ["#ff6384", "#36a2eb", "#ffce56", "#4bc0c0", "#9966ff"];
         //     return colors[index % colors.length];
@@ -188,7 +177,7 @@ const app = Vue.createApp({
         },
         async fetchTableData() {
             try {
-                const response = await fetch("https://jsonplaceholder.typicode.com/users");
+                const response = await fetch("http://localhost:3000/environmentalMetrics");
                 const data = await response.json();
                 this.tableData = data;
             } catch (error) {

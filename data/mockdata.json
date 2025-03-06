@@ -1,1 +1,235 @@
-// optional mock data for local testing
+{
+    "sustainabilityData": [
+      { "place": "USA", "year": 2021, "value": 4.5 },
+      { "place": "USA", "year": 2022, "value": 5 },
+      { "place": "USA", "year": 2023, "value": 5.5 },
+      { "place": "USA", "year": 2024, "value": 6 },
+      { "place": "Canada", "year": 2021, "value": 6.5 },
+      { "place": "Canada", "year": 2022, "value": 13 },
+      { "place": "Canada", "year": 2023, "value": 14 },
+      { "place": "Canada", "year": 2024, "value": 15 },
+      { "place": "United Kingdom", "year": 2021, "value": 1.0 },
+      { "place": "United Kingdom", "year": 2022, "value": 4.3 },
+      { "place": "United Kingdom", "year": 2023, "value": 4.4 },
+      { "place": "United Kingdom", "year": 2024, "value": 4.5 },
+      { "place": "Australia", "year": 2021, "value": 7 },
+      { "place": "Australia", "year": 2022, "value": 14 },
+      { "place": "Australia", "year": 2023, "value": 14.5 },
+      { "place": "Australia", "year": 2024, "value": 15 },
+      { "place": "New Zealand", "year": 2021, "value": 2.5 },
+      { "place": "New Zealand", "year": 2022, "value": 5 },
+      { "place": "New Zealand", "year": 2023, "value": 5.8 },
+      { "place": "New Zealand", "year": 2024, "value": 6 },
+      { "place": "Norway", "year": 2021, "value": 3 },
+      { "place": "Norway", "year": 2022, "value": 6 },
+      { "place": "Norway", "year": 2023, "value": 7 },
+      { "place": "Norway", "year": 2024, "value": 8 },
+      { "place": "Taiwan", "year": 2021, "value": 5.2 },
+      { "place": "Taiwan", "year": 2022, "value": 11 },
+      { "place": "Taiwan", "year": 2023, "value": 11.2 },
+      { "place": "Taiwan", "year": 2024, "value": 12 },
+      { "place": "Germany", "year": 2021, "value": 3.4 },
+      { "place": "Germany", "year": 2022, "value": 7 },
+      { "place": "Germany", "year": 2023, "value": 7.1 },
+      { "place": "Germany", "year": 2024, "value": 8 }
+    ],
+    "environmentalMetrics": [
+      {
+        "year": 2021,
+        "country": "USA",
+        "co2_emissions_million_tons": 5100,
+        "renewable_energy_percent": 15,
+        "water_usage_billion_m3": 480
+      },
+      {
+        "year": 2022,
+        "country": "USA",
+        "co2_emissions_million_tons": 5000,
+        "renewable_energy_percent": 18,
+        "water_usage_billion_m3": 475
+      },
+      {
+        "year": 2023,
+        "country": "USA",
+        "co2_emissions_million_tons": 4900,
+        "renewable_energy_percent": 21,
+        "water_usage_billion_m3": 470
+      },
+      {
+        "year": 2024,
+        "country": "USA",
+        "co2_emissions_million_tons": 4800,
+        "renewable_energy_percent": 25,
+        "water_usage_billion_m3": 465
+      },
+      {
+        "year": 2021,
+        "country": "Canada",
+        "co2_emissions_million_tons": 700,
+        "renewable_energy_percent": 40,
+        "water_usage_billion_m3": 300
+      },
+      {
+        "year": 2022,
+        "country": "Canada",
+        "co2_emissions_million_tons": 680,
+        "renewable_energy_percent": 42,
+        "water_usage_billion_m3": 295
+      },
+      {
+        "year": 2023,
+        "country": "Canada",
+        "co2_emissions_million_tons": 660,
+        "renewable_energy_percent": 45,
+        "water_usage_billion_m3": 290
+      },
+      {
+        "year": 2024,
+        "country": "Canada",
+        "co2_emissions_million_tons": 640,
+        "renewable_energy_percent": 50,
+        "water_usage_billion_m3": 285
+      },
+      {
+        "year": 2021,
+        "country": "UK",
+        "co2_emissions_million_tons": 400,
+        "renewable_energy_percent": 35,
+        "water_usage_billion_m3": 100
+      },
+      {
+        "year": 2022,
+        "country": "UK",
+        "co2_emissions_million_tons": 380,
+        "renewable_energy_percent": 38,
+        "water_usage_billion_m3": 98
+      },
+      {
+        "year": 2023,
+        "country": "UK",
+        "co2_emissions_million_tons": 360,
+        "renewable_energy_percent": 42,
+        "water_usage_billion_m3": 95
+      },
+      {
+        "year": 2024,
+        "country": "UK",
+        "co2_emissions_million_tons": 340,
+        "renewable_energy_percent": 45,
+        "water_usage_billion_m3": 92
+      },
+      {
+        "year": 2021,
+        "country": "Australia",
+        "co2_emissions_million_tons": 500,
+        "renewable_energy_percent": 25,
+        "water_usage_billion_m3": 150
+      },
+      {
+        "year": 2022,
+        "country": "Australia",
+        "co2_emissions_million_tons": 480,
+        "renewable_energy_percent": 28,
+        "water_usage_billion_m3": 145
+      },
+      {
+        "year": 2023,
+        "country": "Australia",
+        "co2_emissions_million_tons": 460,
+        "renewable_energy_percent": 32,
+        "water_usage_billion_m3": 140
+      },
+      {
+        "year": 2024,
+        "country": "Australia",
+        "co2_emissions_million_tons": 440,
+        "renewable_energy_percent": 36,
+        "water_usage_billion_m3": 135
+      },
+      {
+        "year": 2021,
+        "country": "New Zealand",
+        "co2_emissions_million_tons": 80,
+        "renewable_energy_percent": 60,
+        "water_usage_billion_m3": 50
+      },
+      {
+        "year": 2022,
+        "country": "New Zealand",
+        "co2_emissions_million_tons": 75,
+        "renewable_energy_percent": 62,
+        "water_usage_billion_m3": 48
+      },
+      {
+        "year": 2023,
+        "country": "New Zealand",
+        "co2_emissions_million_tons": 70,
+        "renewable_energy_percent": 65,
+        "water_usage_billion_m3": 46
+      },
+      {
+        "year": 2024,
+        "country": "New Zealand",
+        "co2_emissions_million_tons": 65,
+        "renewable_energy_percent": 68,
+        "water_usage_billion_m3": 45
+      },
+      {
+        "year": 2021,
+        "country": "Norway",
+        "co2_emissions_million_tons": 50,
+        "renewable_energy_percent": 80,
+        "water_usage_billion_m3": 40
+      },
+      {
+        "year": 2022,
+        "country": "Norway",
+        "co2_emissions_million_tons": 48,
+        "renewable_energy_percent": 82,
+        "water_usage_billion_m3": 38
+      },
+      {
+        "year": 2023,
+        "country": "Norway",
+        "co2_emissions_million_tons": 46,
+        "renewable_energy_percent": 85,
+        "water_usage_billion_m3": 36
+      },
+      {
+        "year": 2024,
+        "country": "Norway",
+        "co2_emissions_million_tons": 44,
+        "renewable_energy_percent": 87,
+        "water_usage_billion_m3": 35
+      },
+      {
+        "year": 2021,
+        "country": "Taiwan",
+        "co2_emissions_million_tons": 260,
+        "renewable_energy_percent": 20,
+        "water_usage_billion_m3": 90
+      },
+      {
+        "year": 2022,
+        "country": "Taiwan",
+        "co2_emissions_million_tons": 250,
+        "renewable_energy_percent": 22,
+        "water_usage_billion_m3": 88
+      },
+      {
+        "year": 2023,
+        "country": "Taiwan",
+        "co2_emissions_million_tons": 240,
+        "renewable_energy_percent": 25,
+        "water_usage_billion_m3": 85
+      },
+      {
+        "year": 2024,
+        "country": "Taiwan",
+        "co2_emissions_million_tons": 230,
+        "renewable_energy_percent": 28,
+        "water_usage_billion_m3": 83
+      }       
+    ]         
+  }
+  
