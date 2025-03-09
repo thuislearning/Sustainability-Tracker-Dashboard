@@ -17,10 +17,9 @@ After this project, I learn to:
 - Create a simple mock API
 
 ## Running the project with Docker
-1. Build the Docker image:
+1. Build the Docker containers:
    ```bash
-   docker build -t <image-name> .
-2. Run the container
-   ```bash
-   docker run -p 3000:3000 <image-name>
-3. Access the app at http://localhost:3000
+   docker-compose up --build
+2. Access the app at:
+   - http://localhost:8080 for frontend
+   - http://localhost:3000 for json server
